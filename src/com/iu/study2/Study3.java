@@ -82,7 +82,7 @@ public class Study3 {
 					case 1 : //             건강보험 3%,     국민연금 2%,      고용보험 1%,     산재보험 1%
 						sil = (int)(sal - (sal*0.03f) - (sal*0.02f) - (sal*0.01f) - (sal*0.01f));
 						break;
-					case 2 : //			원천징수 3.3%
+					case 2 : //			    원천징수 3.3%
 						sil = (int)(sal - (sal*0.033f));
 						break;
 					default :
