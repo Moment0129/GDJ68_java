@@ -122,6 +122,8 @@ public class Study5_while_ex1 {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		boolean check = true;
+		
 		// 로그인 성공했을 때만 진행
 		// MMORPG
 		// 시작레벨 : 1
@@ -146,51 +148,74 @@ public class Study5_while_ex1 {
 		int id = 1234;
 		int pw = 5678;
 		
-
-		
-		// 아이디 입력
-		System.out.print("ID : ");
-		int yid = sc.nextInt();
-		
-		// 비밀번호 입력
-		System.out.print("PW : ");
-		int ypw = sc.nextInt();
-		
-		// 레벨
 		int level = 1;
-		
-		// 사냥 여부
-		int hunt = 0;
-		
-		// 잡은 몬스터의 수
-		int mon = 0;
-		
-		// 골드
 		int gold = 0;
 		
+
 		
+		while(check) {
+			System.out.println("1.로그인 2.종료");
+			int select = sc.nextInt();
+			if(select==1) {
+				System.out.println("ID 입력");
+				int yId = sc.nextInt();
+				System.out.println("PW 입력");
+				int yPw = sc.nextInt();
+				if(id==yId && pw==yPw) {
+					System.out.println("로그인 성공");
+					break;
+				}else {
+					System.out.println("로그인 실패");
+				}
+			} else {
+				// check=false;
+				check=!check;
+				break;
+			}
+			
+		} // while문 종료
+
 		
 		for(level=1; level<15; level++) {
 			
-			System.out.println("몬스터를 잡으시겠습니까?");
-			System.out.println("1-잡는다 / 2-종료");
-			hunt = sc.nextInt();
-			
-			if(hunt==1) {
-				System.out.println("몬스터 사냥에 성공하셨습니다!");
-				mon++;
-				
-				if(mon%3==0) {
-					System.out.println("축하합니다!");
-					System.out.println("레벨 " + (level+1) + "이 되었습니다.");
-					break;
-				}
-			} else {
+			if(level%5==0) {
+				System.out.println("***** 5레벨 달성을 축하합니다!!! *****");
+				gold = gold + (level/5*1000);
+
+			}
+//			if(level==10) {
+//				// 그냥 gold = 1000; 이라고 쓰게 된다면 다음 레벨 10 때
+//				// gold = 2000; 라고 쓰게 되면서 기존의 1000골드에서 누적되는 것이
+//				아닌, 그냥 2000을 대입하는 것으로 처리된다.
+//				System.out.println("***** 10레벨 달성을 축하합니다!!! *****");
+//				gold = gold + 2000;
+//			}
+		
+			// 렙업시 게임을 계속할지 종료할지 선택
+			System.out.println("1.사냥시작 2.게임종료");
+			int select = sc.nextInt();
+			if(select !=1) {
 				break;
 			}
+			
+			for(int monster=0;monster<level*3;monster++) {
+				System.out.println(monster+1 + "마리 사냥 성공");
+			}
+			
+			System.out.println(level+1 + "로 레벨업 했습니다.");
+
+		}	// 레벨업 과정
+		
+		
+		if(level==15) {
+			System.out.println("***** 15레벨 달성을 축하합니다!!! *****");
+			gold = gold + 3000;
 		}
 		
+		// 현재 레벨, GOLD 가 출력
+		System.out.println("현재 레벨 : " + level);
+		System.out.println("GOLD : " + gold);
 		
-
+		System.out.println("프로그램을 종료합니다.");
 	}
 }
