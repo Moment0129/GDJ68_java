@@ -29,6 +29,7 @@ public class Array6 {
 			for(int j=0; j<ars[i].length; j++) {
 				System.out.println(ars[i][j]);
 			}
-		}
+		}	// for문 끝
+
 	}
 }
