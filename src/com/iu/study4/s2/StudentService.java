@@ -4,6 +4,25 @@ import java.util.Scanner;
 
 public class StudentService {
 	
+	public Student findByNum(Student [] students) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("찾으려는 학생의 번호를 입력하세요.");
+		int search = sc.nextInt();
+
+		Student student = null;
+		
+		for(int i=0; i<students.length; i++) {
+			if(search==students[i].num) {
+				student = students[i];
+				break;
+			}		
+		}
+		
+		return student;
+		
+	}
+	
 	public Student makeStudentOne() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -53,34 +72,37 @@ public class StudentService {
 
 		System.out.print("학생 수를 입력해주세요. >> ");
 		int count = sc.nextInt();
-		Student [] student = new Student [count];
+		Student [] students = new Student [count];
 		
 		
 		for(int i=0; i<count; i++) {
 			
-			System.out.println("학생의 이름을 입력해주세요. >> ");
-			student [i].name = sc.next();
-				
-			System.out.println("학생의 번호를 입력해주세요. >> ");
-			student [i].num = sc.nextInt();
-				
-			System.out.println("학생의 국어점수를 입력해주세요. >> ");
-			student [i].kor = sc.nextInt();
-				
-			System.out.println("학생의 영어점수를 입력해주세요. >> ");
-			student [i].eng = sc.nextInt();
-				
-			System.out.println("학생의 수학점수를 입력해주세요 >> ");
-			student [i].math = sc.nextInt();
-				
-			student [i].total = student [i].kor + student [i].eng + student [i].math;
-			student [i].avg = (student [i].kor + student [i].eng + student [i].math)/3;
+			// 값을 넣을 학생정보 템플릿 생성
+			Student student = new Student();
 			
-			System.out.println(student [i].name + "의 총점 : " + student [i].total + "점");
-			System.out.println(student [i].name + "의 점수 평균 : " + student [i].avg + "점");
+			System.out.print("학생의 이름을 입력해주세요. >> ");
+			student.setName(sc.next());
+				
+			System.out.print("학생의 번호를 입력해주세요. >> ");
+			student.setNum(sc.nextInt());
+				
+			System.out.print("학생의 국어점수를 입력해주세요. >> ");
+			student.setKor(sc.nextInt());
+				
+			System.out.print("학생의 영어점수를 입력해주세요. >> ");
+			student.setEng(sc.nextInt());
+				
+			System.out.print("학생의 수학점수를 입력해주세요 >> ");
+			student.setMath(sc.nextInt());
+				
+			student.setTotal() = student.setKor() + student.setEng() + student.setMath();
+			student.setAvg() = (student.setKor() + student.setEng() + student.setMath())/3;
+			
+			// 학생정보 템플릿에 넣은 정보를 A4 파일에 넣는다~ 
+			students [i] = student;
+			
 		}
-		
-		
-		return student;
+				
+		return students;
 	}
 }
