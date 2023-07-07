@@ -26,7 +26,9 @@ public class Customer {
 	
 	// 상품 2개 샀을 경우 (위의 buy 메서드와 오버로딩)
 	public void buy(Product [] products) {
-		System.out.println(products);
+		for(int i=0; i<products.length; i++) {
+			this.buy(s);
+		}
 		this.money = this.money - products[0].getPrice() + products[1].getPrice();
 		this.point = this.point + products[0].getPoint() + products[1].getPoint();
 		System.out.println("남은 돈 : " + this.money);
